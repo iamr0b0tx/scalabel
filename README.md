@@ -30,6 +30,8 @@ More installation and usage details can be find in our [documentation](http://ww
 - Python 3.7+ (https://python.org/download/)
 - nodejs and npm (https://nodejs.org/en/download/)
 - redis (https://redis.io/topics/quickstart, windows: https://github.com/microsoftarchive/redis/releases)
+- bash [**For windows only**] (https://gitforwindows.org/)
+
 
 1. Check out the code
 
