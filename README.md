@@ -26,36 +26,25 @@
 
 More installation and usage details can be find in our [documentation](http://www.scalabel.ai/doc). It also includes Windows setup.
 
+### Requirements
+- Python 3.7+ (https://python.org/download/)
+- nodejs and npm (https://nodejs.org/en/download/)
+- redis (https://redis.io/topics/quickstart, windows: https://github.com/microsoftarchive/redis/releases)
+
 1. Check out the code
 
    ```
-   git clone git@github.com:scalabel/scalabel.git
+   git clone https://github.com/scalabel/scalabel
    cd scalabel
    ```
 
 2. Compile the code
 
-   There are two alternative ways to get the compiled code
+    Compile the code yourself (recommended if you want to customize the source code)
 
-   1. Usage docker (recommended if you only need to run the code)
-
-      Download from dockerhub
-
-      ```
-      docker pull scalabel/www
-      ```
-
-      or build the docker image yourself
-
-      ```
-      docker build . -t scalabel/www
-      ```
-
-      Depending on your system, you may also have to increase docker's memory limit (8 GB should be sufficient).
-
-   2. Compile the code yourself (recommended if you want to customize the source code)
-
-      Install [nodejs and npm](https://nodejs.org/en/download/) and [redis](https://redis.io/topics/quickstart).
+      Install [nodejs and npm](https://nodejs.org/en/download/) and [redis](https://redis.io/topics/quickstart) 
+      
+      On Windows download the exe asset here: https://github.com/microsoftarchive/redis/releases.
 
       On Mac
 
@@ -73,6 +62,8 @@ More installation and usage details can be find in our [documentation](http://ww
 
       ```
       npm install
+
+      **for windows use bash**
       node_modules/.bin/webpack --config webpack.config.js --mode=production
       ```
 
@@ -83,9 +74,8 @@ More installation and usage details can be find in our [documentation](http://ww
       ```
 
       Install python dependencies
-
       ```
-      python3.8 -m pip install -U -r scripts/requirements.txt
+      python -m pip install -U -r scripts/requirements.txt
       ```
 
 3. Prepare data directory
@@ -96,17 +86,6 @@ More installation and usage details can be find in our [documentation](http://ww
    ```
 
 4. Launch the server
-
-   If using docker,
-
-   ```
-   docker run -it -v "`pwd`/data:/opt/scalabel/data" -p 8686:8686 -p 6379:6379 scalabel/www \
-       python3.8 scripts/launch_server.py --config /opt/scalabel/data/config.yml
-   ```
-
-   Please note to map the correct ports for both http and redis servers.
-
-   Otherwise, without using docker,
 
    ```
    python scripts/launch_server.py --config ./data/config.yml
@@ -119,7 +98,7 @@ More installation and usage details can be find in our [documentation](http://ww
    The collected labels can be directly downloaded from the project dashboard. The data can be follow [bdd data format](https://github.com/ucbdrive/bdd-data/blob/master/doc/format.md). After installing the requirements and setting up the paths of the [bdd data toolkit](https://github.com/ucbdrive/bdd-data), you can visualize the labels by
 
    ```
-   python3 -m bdd_data.show_labels.py -l <your_downloaded_label_path.json>
+   python -m bdd_data.show_labels.py -l <your_downloaded_label_path.json>
    ```
 
 ## Usage
