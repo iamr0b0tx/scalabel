@@ -60,10 +60,9 @@ More installation and usage details can be find in our [documentation](http://ww
 
       Transpile or build Javascript code
 
+      **for windows use bash to do this**
       ```
       npm install
-
-      **for windows use bash**
       node_modules/.bin/webpack --config webpack.config.js --mode=production
       ```
 
